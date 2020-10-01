@@ -45,3 +45,11 @@ public class MainActivity extends AppCompatActivity {
         constraintSet.applyTo(constraintLayout);
     }
 }
+
+// Ueberschiessende Animation:
+////////////////////////////////////////////////////////////////////////
+Transition transition = new ChangeBounds()
+        .setDuration(3000)
+      //.setInterpolator(new AnticipateOvershootInterpolator(1.0f))
+        .setInterpolator(new OvershootInterpolator(1.0f));
+////////////////////////////////////////////////////////////////////////
