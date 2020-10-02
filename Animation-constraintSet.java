@@ -27,7 +27,6 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
     }
     
-    @RequiresApi(api = Build.VERSION_CODES.KITKAT)
     public void onClick_button(View view) {
 
         ConstraintSet constraintSet = new ConstraintSet();
@@ -38,9 +37,13 @@ public class MainActivity extends AppCompatActivity {
         // Zugriff auf Einstellungen
         constraintSet.setVerticalBias(view.getId(), 0f);
         
-            // Das bewirkt die Animation!!!!
-            TransitionManager.beginDelayedTransition(constraintLayout);
-            //TransitionManager.beginDelayedTransition(constraintLayout,new ChangeBounds().setDuration(2000));
+            
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
+                // Das bewirkt die Animation!!! :)
+                TransitionManager.beginDelayedTransition(constraintLayout);
+                //TransitionManager.beginDelayedTransition(constraintLayout,new ChangeBounds().setDuration(1000));
+            }
+            
 
         constraintSet.applyTo(constraintLayout);
     }
