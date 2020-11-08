@@ -19,21 +19,52 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
 
-        long nanoTime1 = System.nanoTime();
-        // Hier zu messender Code rein!/////////////////////////////////////
-
-        //SystemClock.sleep(1000);
-
-        // Ende des zu messenden Codes!//////////////////////////////////////
-        long nanoTime2 = System.nanoTime();
+        
+		long nanoTime1 = System.nanoTime();
+        
+		     //Code to be measured in here
+        
+		long nanoTime2 = System.nanoTime();
 
 
         long ergebnis = nanoTime2 - nanoTime1;
 
-        // long in double Konvertieren um zu Teilen für Milisekunden Ausgabe
+        // long to double convert, to split for millisecond output
         double double_ergebnis = Double.parseDouble(String.valueOf(ergebnis)) ;
 
         double double_millisekunden = double_ergebnis/1000000;
-        Log.d("mein_TAG", String.valueOf(double_millisekunden + " Milisekunden"));
+        Log.d("mein_TAG", String.valueOf(double_millisekunden + " milliseconds"));
     }
 }
+
+
+// In Kotlin: %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+package android.example.myapplication
+
+import android.os.Bundle
+import android.util.Log
+import androidx.appcompat.app.AppCompatActivity
+
+
+class MainActivity : AppCompatActivity() {
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_main)
+
+
+        
+		val nanoTime1 = System.nanoTime()
+
+            //Code to be measured in here
+
+        val nanoTime2 = System.nanoTime()
+        val res = nanoTime2 - nanoTime1
+
+        // Nano to milliseconds
+        val res_m = res.toDouble() / 1000000
+
+        Log.d("TAG", "Result in milliseconds: $res_m")
+    }
+}
+// %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
