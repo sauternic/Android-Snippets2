@@ -53,8 +53,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
 
-        
-		val nanoTime1 = System.nanoTime()
+        val nanoTime1 = System.nanoTime()
 
             //Code to be measured in here
 
